@@ -1,17 +1,17 @@
 <div class="container">
-    <div class="container d-flex header-below justify-content-between mt-4">
+    <div class="container d-flex header-below justify-content-between mt-5">
         <div>
             <h3>Product List</h3>
         </div>
         <div class="d-flex">
-            <button class="btn btn-primary text-light text-uppercase mx-4">ADD</button>
+            <a routerLink="/add-product" class=" btn btn-primary text-light text-uppercase mx-4">ADD</a>
         <button class="btn btn-danger text-light text-uppercase">Mass Delete</button>
         </div>
     </div>
     <div class="row mb-3">
         <div class=" col-md-4 mt-4 mb-3 mx-5 products" *ngFor="let product of productData">
             <div class="mt-2">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" name="" class="delete-checkbox" id="">
             </div>
 
             <div *ngIf="product" class="text-center" >
@@ -22,15 +22,15 @@
                     <p>WEIGHT:{{product.weight}}KG</p>
                 </div>
                 <div *ngIf="product.type == 'furniture'">
-                    <p>H:{{product.height}}</p>
-                    <p>W:{{product.width}}</p>
-                    <p>L:{{product.length}}</p>
+                    <p>H: {{product.height}}</p>
+                    <p>W: {{product.width}}</p>
+                    <p>L: {{product.length}}</p>
                 </div>
                 <div *ngIf="product.type == 'dvd/cd'">
-                    <p>Size(MB){{product.size}}</p>
+                    <p>Size(MB): {{product.size}}</p>
                 </div>
 
-                <p><span>Size</span> 500mb</p>
+                <p><span>Price: </span> {{product.price}}</p>
             </div>
         </div>
     </div>

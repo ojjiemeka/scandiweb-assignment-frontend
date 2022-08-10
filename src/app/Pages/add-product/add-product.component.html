@@ -1,1 +1,91 @@
-<p>add-product works!</p>
+<div class="container">
+  <div class="container d-flex header-below justify-content-between mb-3 mt-5">
+    <div>
+      <h3>Product Add</h3>
+    </div>
+    <div class="d-flex">
+      <a routerLink="/add-product" class="fw-bold btn btn-outline-primary text-uppercase mx-4">Cancel</a>
+      <button class="btn btn-success fw-bold text-light text-uppercase" type="submit" (click)="addProductForm()">Save</button>
+    </div>
+  </div>
+  <div class="container">
+    <form [formGroup]="productFormData" (ngSubmit)="addProductForm()" id="product_form">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" maxlength="6" formControlName="sku" id="floatingInput sku">
+        <label for="floatingInput">SKU</label>
+        <div *ngIf="f['sku']?.dirty && f['sku']?.invalid" class="invalid-feedback">
+            <!-- <div *ngIf="f['sku']?.errors?.['required']">
+            Enter SKU number
+            </div> -->
+            Enter SKU number
+
+        </div>
+        <!-- <div *ngIf="productFormData.value.sku.validators.required AND form.value.sku.touched">
+            Enter SKU number
+        </div> -->
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="product_name" id="floatingInput name">
+        <label for="floatingInput">Product name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" formControlName="price" id="floatingInput price"
+          placeholder="Enter Price">
+        <label for="floatingInput">Price</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <select class="form-select" (change)="optionChange($event)" id="floatingSelect product_type"
+          formControlName="type" aria-label="Floating label select example">
+          <option selected>Select Type</option>
+          <option value="{{ data }}" *ngFor="let data of type">{{ data }}</option>
+        </select>
+        <label for="floatingSelect">Type</label>
+      </div>
+
+      <div *ngIf="selectedValue === 'dvd/cd'" class="mb-3">
+        <div id="dvd" class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="size" id="floatingInput price">
+          <label for="floatingInput">Size (MB)</label>
+        </div>
+        <div>
+          <span class="text-danger">
+            <i class='bx bxs-error-circle'></i> Please provide size in megabyte
+        </span>
+        </div>
+      </div>
+
+      <div id="furniture" *ngIf="selectedValue === 'furniture'" class="mb-3">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="height" id="floatingInput price">
+          <label for="floatingInput">Height (CM)</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="width" id="floatingInput price">
+          <label for="floatingInput">Width (CM)</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="length" id="floatingInput price">
+          <label for="floatingInput">Length (CM)</label>
+        </div>
+        <div class="">
+          <span class="text-danger">
+            <i class='bx bxs-error-circle'></i> Please provide dimensions in <span>H * W * L</span> format
+        </span>
+        </div>
+      </div>
+
+      <div class="mb-3" *ngIf="selectedValue === 'book'">
+        <div id="book" class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="weight" id="floatingInput price">
+          <label for="floatingInput">Weight (KG)</label>
+        </div>
+        <div>
+          <span class="text-danger">
+            <i class='bx bxs-error-circle'></i> Please provide weight in KG 
+        </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
