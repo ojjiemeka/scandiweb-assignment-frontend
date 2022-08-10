@@ -1,1 +1,37 @@
-<p>index works!</p>
+<div class="container">
+    <div class="container d-flex header-below justify-content-between mt-4">
+        <div>
+            <h3>Product List</h3>
+        </div>
+        <div class="d-flex">
+            <button class="btn btn-primary text-light text-uppercase mx-4">ADD</button>
+        <button class="btn btn-danger text-light text-uppercase">Mass Delete</button>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class=" col-md-4 mt-4 mb-3 mx-5 products" *ngFor="let product of productData">
+            <div class="mt-2">
+                <input type="checkbox" name="" id="">
+            </div>
+
+            <div *ngIf="product" class="text-center" >
+                <p>SKU: {{product.sku}}</p>
+                <p>NAME: {{product.product_name}}</p>
+
+                <div *ngIf="product.type == 'books'">
+                    <p>WEIGHT:{{product.weight}}KG</p>
+                </div>
+                <div *ngIf="product.type == 'furniture'">
+                    <p>H:{{product.height}}</p>
+                    <p>W:{{product.width}}</p>
+                    <p>L:{{product.length}}</p>
+                </div>
+                <div *ngIf="product.type == 'dvd/cd'">
+                    <p>Size(MB){{product.size}}</p>
+                </div>
+
+                <p><span>Size</span> 500mb</p>
+            </div>
+        </div>
+    </div>
+</div>

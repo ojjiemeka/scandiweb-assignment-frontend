@@ -1,3 +1,72 @@
-#product-body{
-    background-color: #3E3A3B;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+body{
+    font-family: 'Manrope', sans-serif;
 }
+
+#product-body{
+    background-color: #e9e9e9;
+}
+
+a{
+    font-weight: 800;
+}
+
+.nav-links{
+    position: absolute;
+    right: 5em;
+    display: flex;
+    top: 14px;
+}
+
+.nav-link:hover{
+color: blueviolet !important;
+}
+
+.products{
+    background-color: #aad2d3;
+    width: 17em;
+    height: auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+
+@media (min-width: 320px) {
+    .products{
+        width: 14.5em;
+    }
+}
+
+@media (min-width: 375px) {
+    .products{
+        width: 17.5em;
+    }
+}
+
+@media (min-width: 425px) {
+    .products{
+        width: 21em;
+    }
+}
+
+@media (min-width: 768px) {
+    .products{
+        width: 16.5em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products{
+        width: 13.5em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .products{
+        width: 11.5em;
+    }
+}
+

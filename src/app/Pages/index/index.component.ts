@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  productData: any
+
+  constructor(
+    private productServ: ProductService
+  ) { }
 
   ngOnInit(): void {
+    this.getProduct();
+  }
+
+  getProduct(){
+    this.productServ.getProducts().subscribe(
+      (products) =>{
+        this.productData = products.data;
+        console.log(this.productData);
+      }
+    )
   }
 
 }
