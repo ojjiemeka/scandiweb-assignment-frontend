@@ -21,7 +21,17 @@ export class ProductService {
     return this.http.get<any>(this.$base_URL +'/index.php', httpOptions);
   }
 
-  addProduct(){
-    
-  }
+  addProduct( body:any ){
+    const httpOptions = { 
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        })
+      };
+  
+    return this.http.post<any>(this.$base_URL +'/create.php', body, httpOptions);
+   }
+
+   deleteProduct(id : any = []){
+
+   }
 }
