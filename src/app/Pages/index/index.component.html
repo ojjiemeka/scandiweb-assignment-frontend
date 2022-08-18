@@ -11,7 +11,7 @@
   <div  *ngIf="productData.length > 0" class="row mb-3">
       <div class=" col-md-4 mt-4 mb-3 mx-5 products card" *ngFor="let product of productData">
           <div class="mt-2">
-              <input type="checkbox" (change)="getSelectedCheckBox(product.id)" [style.display]="isHidden? 'none': 'block'"  name="" class="delete-checkbox" id="">
+              <input type="checkbox" (change)="getSelectedCheckBox(product.id)" name="" class="delete-checkbox" id="">
           </div>
           <div class="card-body">
           <div class="text-center">
