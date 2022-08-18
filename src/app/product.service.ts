@@ -11,7 +11,9 @@ export class ProductService {
     private http: HttpClient,
   ) { }
 
-  $base_URL = "https://localhost/products-backend/Api/products";
+  // $base_URL = "https://localhost/products-backend/Api/products";
+  $base_URL = "https://chukwuemeke-portfolio.000webhostapp.com/products-backend/Api/products";
+
 
   getProducts(){
     const httpOptions = {

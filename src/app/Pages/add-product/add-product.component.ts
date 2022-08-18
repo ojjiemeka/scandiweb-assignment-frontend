@@ -18,9 +18,9 @@ export class AddProductComponent implements OnInit {
 
 
   type = [
-    'book',
-    'furniture',
-    'dvd/cd'
+    'Book',
+    'Furniture',
+    'DVD'
   ]
 
   constructor(
@@ -40,7 +40,7 @@ export class AddProductComponent implements OnInit {
     console.log(this.model)
     this.productService.addProduct(this.model).subscribe(res => {
           // console.log(res.message);
-          Swal.fire(res.message);
+          // Swal.fire(res.message);
           this.router.navigate(['/'])
         })
   }

@@ -16,6 +16,8 @@ export class IndexComponent implements OnInit {
   checkedID : any
   productData: Product[] = [];
   model: Product = new Product();
+  toggle = false;
+  isHidden = false;
 
   public deleteProductData!: FormGroup
 
@@ -39,7 +41,7 @@ export class IndexComponent implements OnInit {
     this.productServ.getProducts().subscribe(
       (products) =>{
         this.productData = products.data;
-        console.log(this.productData);
+        // console.log(this.productData);
       }
     )
   }
@@ -76,8 +78,9 @@ export class IndexComponent implements OnInit {
     }
     this.productServ.deleteProduct(this.model).subscribe(res => {
       const data = res;
-      console.log(data.message);
-     alert(data.message);
+      // console.log(data.message);
+      this.isHidden = true;
+    //  alert(data.message);
      this.getProduct();
      this.model.checkedItems = [];
     });

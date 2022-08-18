@@ -21,10 +21,9 @@
         <input type="text"
         class="form-control"
         name="sku"
-        maxlength="6"
         #sku="ngModel"
         [(ngModel)]="model.sku"
-        id="floatingInput sku"
+        id="sku"
         required>
         <label for="floatingInput">SKU</label>
 
@@ -34,14 +33,14 @@
       </div>
       <div class="form-floating mb-3">
         <input type="text" class="form-control" #product="ngModel" [(ngModel)]="model.product_name" name="pName" required
-          id="floatingInput name">
+          id="name">
         <label for="floatingInput">Product name</label>
         <span class="text-danger" *ngIf="(product.touched || form.submitted) && product.errors?.['required']">
           Product name is required
         </span>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" #price="ngModel" [(ngModel)]="model.price" name="price" required id="floatingInput price">
+        <input type="text" class="form-control" #price="ngModel" [(ngModel)]="model.price" name="price" required id="price">
         <label for="floatingInput">Price</label>
         <span class="text-danger" *ngIf="(price.touched || form.submitted) && price.errors?.['required']">
           Price is required
@@ -49,7 +48,7 @@
       </div>
 
       <div class="form-floating mb-3">
-        <select class="form-select" [(ngModel)]="model.type" name="type"  id="floatingSelect product_type"
+        <select class="form-select" [(ngModel)]="model.type" name="type"  id="productType"
           aria-label="Floating label select example">
           <option selected>Select Type</option>
           <option [value]="data" *ngFor="let data of type">{{ data }}</option>
@@ -57,14 +56,14 @@
         <label for="floatingSelect">Type</label>
       </div>
 
-      <div *ngIf="model.type === 'dvd/cd'" class="mb-3">
+      <div *ngIf="model.type === 'DVD'" class="mb-3">
         <div class="mb-3">
           <span class="text-danger">
             <i class='bx bxs-error-circle'></i> Please provide size in MB
           </span>
         </div>
         <div id="dvd" class="form-floating mb-3">
-          <input type="text" class="form-control" #size="ngModel" [(ngModel)]="model.size" name="size" required  id="floatingInput size">
+          <input type="text" class="form-control" #size="ngModel" [(ngModel)]="model.size" name="size" required  id="size">
           <label for="floatingInput">Size (MB)</label>
           <span class="text-danger" *ngIf="(size.touched || form.submitted) && size.errors?.['required']">
             Size is required
@@ -72,7 +71,7 @@
         </div>
       </div>
 
-      <div id="furniture" *ngIf="model.type === 'furniture'" class="mb-3">
+      <div id="furniture" *ngIf="model.type === 'Furniture'" class="mb-3">
 
         <div class="">
           <span class="text-danger">
@@ -80,21 +79,21 @@
           </span>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" #height="ngModel" [(ngModel)]="model.height" name="height" required id="floatingInput height">
+          <input type="text" class="form-control" #height="ngModel" [(ngModel)]="model.height" name="height" required id="height">
           <label for="floatingInput">Height (CM)</label>
           <span class="text-danger" *ngIf="(height.touched || form.submitted) && height.errors?.['required']">
             Height is required
           </span>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" #width="ngModel" [(ngModel)]="model.width" name="width" required id="floatingInput width">
+          <input type="text" class="form-control" #width="ngModel" [(ngModel)]="model.width" name="width" required id="width">
           <label for="floatingInput">Width (CM)</label>
           <span class="text-danger" *ngIf="(width.touched || form.submitted) && width.errors?.['required']">
             Width is required
           </span>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" #length="ngModel" [(ngModel)]="model.length" name="length" required id="floatingInput length">
+          <input type="text" class="form-control" #length="ngModel" [(ngModel)]="model.length" name="length" required id="length">
           <label for="floatingInput">Length (CM)</label>
           <span class="text-danger" *ngIf="(length.touched || form.submitted) && length.errors?.['required']">
             Length is required
@@ -102,14 +101,14 @@
         </div>
       </div>
 
-      <div class="mb-5" *ngIf="model.type === 'book'">
+      <div class="mb-5" *ngIf="model.type === 'Book'">
         <div class="mb-3">
           <span class="text-danger">
             <i class='bx bxs-error-circle'></i> Please provide weight in KG
           </span>
         </div>
         <div id="book" class="form-floating mb-3">
-          <input type="text" class="form-control" #weight="ngModel" [(ngModel)]="model.weight" name="weight" required id="floatingInput weight">
+          <input type="text" class="form-control" #weight="ngModel" [(ngModel)]="model.weight" name="weight" required id="weight">
           <label for="floatingInput">Weight (KG)</label>
           <span class="text-danger" *ngIf="(weight.touched || form.submitted) && weight.errors?.['required']">
             Weight is required
