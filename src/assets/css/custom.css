@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 
 body{
-    font-family: 'Manrope', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #product-body{
@@ -9,14 +9,19 @@ body{
 }
 
 h3, a, span{
-    font-weight: 800;
+    font-weight: 500;
 }
 
 .nav-links{
-    position: absolute;
+    /* position: absolute;
     right: 5em;
     display: flex;
-    top: 14px;
+    top: 14px; */
+}
+
+.show {
+  /* display: contents; */
+  display: flex !important;
 }
 
 .nav-link:hover{
@@ -40,6 +45,11 @@ color: blueviolet !important;
 
 .hide{
     display: none;
+}
+
+.cus-footer{
+  position: relative;
+  bottom: 0;
 }
 
 @media (min-width: 320px) {

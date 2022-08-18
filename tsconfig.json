@@ -11,7 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "strictPropertyInitialization": false,
+    // "strictPropertyInitialization": false,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -27,7 +27,7 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictPropertyInitialization": false,
+    // "strictPropertyInitialization": false,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }

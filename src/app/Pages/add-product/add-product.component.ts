@@ -3,6 +3,7 @@ import { Validator, FormGroup, FormBuilder, Validators, FormControl, NgForm } fr
 import { Router } from '@angular/router';
 import { Product } from 'src/app/@core/models/product.model';
 import { ProductService } from 'src/app/product.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -13,9 +14,9 @@ export class AddProductComponent implements OnInit {
   selectedValue: any;
   submitted = false;
   model: Product = new Product(); // object
- // productList: Product[] = [] // array to bind multiple product in the tABLE
+  message: any;
 
- // public productFormData!: FormGroup
+
   type = [
     'book',
     'furniture',
@@ -23,80 +24,27 @@ export class AddProductComponent implements OnInit {
   ]
 
   constructor(
-  //  private formBuilder: FormBuilder,
-    private route: Router,
+    private router: Router,
     private productService: ProductService
   ) { }
 
   ngOnInit(): void {
-    // this.getType();
-    // this.optionChange();
-    // this.addProductForm();
-   // this.initializeForm();
-
   }
 
-  // getType(){
-  //   return this.type;
-  // }
-
-  // initializeForm(){
-  //   this.productFormData = new FormGroup({
-  //     sku: new FormControl (null),
-  //     product_name: new FormControl (null),
-  //     price: new FormControl (null),
-  //     type: new FormControl (null),
-  //     size: new FormControl (null),
-  //     height: new FormControl (null),
-  //     width: new FormControl (null),
-  //     length: new FormControl (null),
-  //     weight: new FormControl (null),
-  //   });
-
-    // this.productFormData = this.formBuilder.group({
-    //   sku: ['', Validators.required],
-    //   product_name: ['', Validators.required],
-    //   price: ['', Validators.required],
-    //   type: ['', Validators.required],
-    //   size: ['', Validators.required],
-    //   height: ['', Validators.required],
-    //   width: ['', Validators.required],
-    //   length: ['', Validators.required],
-    //   weight: ['', Validators.required]
-    // }
-    // )
-
-
-  // get f() {
-  //   return this.productFormData.controls;
-  // }
 
   addProductForm(form: NgForm){
+    // console.log(form)
     if (!form.valid) {
       return;
     }
-
-    this.productService.addProduct(this.model).subscribe(
-      (res) => {
-        console.log(res.message)
-      },
-      err => {
-        console.log('Something went wrong');
-      }
-    )
-
-    console.log(this.model);
+    console.log(this.model)
+    this.productService.addProduct(this.model).subscribe(res => {
+          // console.log(res.message);
+          Swal.fire(res.message);
+          this.router.navigate(['/'])
+        })
   }
 
-
-  // optionChange(event : any){
-  //   console.log(event.target.value);
-  //   this.selectedValue = event.target.value;
-  // }
-
-  // productsPage(){
-  //   this.route.navigate(['add-product'])
-  // }
 
 
 

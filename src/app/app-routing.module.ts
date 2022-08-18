@@ -6,6 +6,7 @@ import { IndexComponent } from './Pages/index/index.component';
 const routes: Routes = [
   { path: '', component: IndexComponent},
   { path: 'add-product', component: AddProductComponent},
+  // { path: 'create-product', component: CreateProductComponent},
 ];
 
 @NgModule({

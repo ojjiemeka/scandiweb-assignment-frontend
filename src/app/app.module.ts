@@ -8,19 +8,23 @@ import { AddProductComponent } from './Pages/add-product/add-product.component';
 import { HeaderComponent } from './inc/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './inc/footer/footer.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     AddProductComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SweetAlert2Module.forRoot()
 
   ],
   providers: [],
