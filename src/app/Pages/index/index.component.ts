@@ -81,7 +81,8 @@ export class IndexComponent implements OnInit {
       // console.log(data.message);
       this.isHidden = true;
     //  alert(data.message);
-     this.getProduct();
+    //  this.getProduct();
+      this.router.navigate(['/'])
      this.model.checkedItems = [];
     });
 
