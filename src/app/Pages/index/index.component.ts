@@ -3,7 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/@core/models/product.model';
 import { ProductService } from 'src/app/product.service';
-
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -29,6 +30,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct();
+    AOS.init();
   //  this.getCheckboxID();
   }
 

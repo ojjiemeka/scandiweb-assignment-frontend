@@ -14,7 +14,8 @@ export class AddProductComponent implements OnInit {
   selectedValue: any;
   submitted = false;
   model: Product = new Product(); // object
-  message: any;
+  // message: any;
+  errorMessage: any;
 
 
   type = [
@@ -38,14 +39,25 @@ export class AddProductComponent implements OnInit {
       return;
     }
     console.log(this.model)
-    this.productService.addProduct(this.model).subscribe(res => {
-          // console.log(res.message);
-          // Swal.fire(res.message);
-          this.router.navigate(['/'])
-        })
-  }
+    this.productService.addProduct(this.model).subscribe({
+      next: res => {
+          console.log(res.message);
+          console.log(res.status);
 
-
-
+          if(res.status != "200"){
+            Swal.fire(res.message);
+          }
+          else{
+            Swal.fire(res.message);
+            this.router.navigate(['/']);
+          }
+        },
+        error: (err: any) => {
+          this.errorMessage = err;
+          // Swal.fire(this.errorMessage);
+          console.error(this.errorMessage);
+        }
+  });
+}
 
 }
