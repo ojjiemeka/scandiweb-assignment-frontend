@@ -11,8 +11,8 @@ export class ProductService {
     private http: HttpClient,
   ) { }
 
-  $base_URL = "https://localhost/products-backend/Api/products";
-  // $base_URL = "https://chukwuemeke-portfolio.000webhostapp.com/products-backend/Api/products";
+  // $base_URL = "https://localhost/products-backend/Api/products";
+  $base_URL = "https://scandiweb.test-emeka.space/products-backend/Api/products";
 
 
   getProducts(){
@@ -25,20 +25,7 @@ export class ProductService {
   }
 
   addProduct(body:Product){
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //       'Content-Type': 'application/json',
-    //     })
-    //   };
-
-    // console.log(body);
-
     const heders = new HttpHeaders();
-
-    if( body === null ){
-      console.log('empty')
-      // return false;
-    }
 
     return this.http.post<any>(this.$base_URL +'/create.php', body);
    }

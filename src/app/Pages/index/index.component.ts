@@ -3,8 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/@core/models/product.model';
 import { ProductService } from 'src/app/product.service';
-import * as AOS from 'aos';
-import 'aos/dist/aos.css';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -30,8 +30,6 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct();
-    AOS.init();
-  //  this.getCheckboxID();
   }
 
  /**
@@ -42,7 +40,7 @@ export class IndexComponent implements OnInit {
   getProduct(){
     this.productServ.getProducts().subscribe(
       (products) =>{
-        this.productData = products.data;
+        this.productData = products;
         // console.log(this.productData);
       }
     )
@@ -82,9 +80,8 @@ export class IndexComponent implements OnInit {
       const data = res;
       // console.log(data.message);
       this.isHidden = true;
-     alert(data.message);
+     Swal.fire(data.message);
     //  this.getProduct();
-      // this.router.navigate(['/'])
       this.router.navigate(['/'])
       .then(() => {
         window.location.reload();

@@ -38,11 +38,9 @@ export class AddProductComponent implements OnInit {
     if (!form.valid) {
       return;
     }
-    console.log(this.model)
+
     this.productService.addProduct(this.model).subscribe({
       next: res => {
-          console.log(res.message);
-          console.log(res.status);
 
           if(res.status != "200"){
             Swal.fire(res.message);
@@ -54,8 +52,8 @@ export class AddProductComponent implements OnInit {
         },
         error: (err: any) => {
           this.errorMessage = err;
-          // Swal.fire(this.errorMessage);
-          console.error(this.errorMessage);
+          Swal.fire(this.errorMessage);
+          // console.error(this.errorMessage);
         }
   });
 }
